@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
-  tasks.forEach(task => renderTasks(task));
+  tasks.forEach((task) => renderTasks(task));
 
   addTaskButton.addEventListener("click", () => {
     const taskText = todoInput.value.trim();
@@ -19,12 +19,34 @@ document.addEventListener("DOMContentLoaded", () => {
 
     tasks.push(newTask);
     saveTasks();
+    renderTasks(newTask);
     todoInput.value = ""; //clear Input
     console.log(tasks);
   });
 
   function renderTasks(task) {
-    console.log(task);
+    const li = document.createElement("li");
+    li.setAttribute("data-id", task.id);
+    if (task.completed) li.classList.add("completed");
+
+    li.innerHTML = `
+<span>${task.text}</span>
+<button> Delete </button>`;
+    li.addEventListener("click", (e) => {
+      if (e.target.tagName === "BUTTON") return;
+      task.completed = !task.completed;
+      li.classList.toggle("completed");
+      saveTasks();
+    });
+
+    li.querySelector("button").addEventListener("click", (e) => {
+      e.stopPropagation();
+      tasks = tasks.filter((t) => t.id !== task.id);
+      li.remove();
+      saveTasks();
+    });
+
+    todoList.appendChild(li);
   }
 
   function saveTasks() {

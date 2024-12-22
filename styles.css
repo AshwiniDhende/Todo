@@ -1,6 +1,8 @@
 body {
   /* background-color: rgb(118, 156, 169); */
-  background-image: url("");
+  background-image: url("todo.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   margin: 0;
   display: flex;
   justify-content: center;
@@ -9,20 +11,19 @@ body {
 }
 
 .container {
-    background-color: rgb(148, 144, 144);
-    border-radius: 20px;
+  background-color: rgb(160, 157, 157);
+  border-radius: 20px;
   color: #fff;
-  /* width: 50vw; */
   margin: auto;
   padding: 30px;
   position: relative;
   margin-top: 50px;
-  font-family: Arial, Helvetica, sans-serif;
-  box-shadow: 0 5px 9px rgba(130, 30, 30, 0.2);
+  font-family: Georgia, "Times New Roman", Times, serif;
+  box-shadow: 0 9px 10px rgba(243, 10, 10, 0.2);
 }
 
-button {
-  background: linear-gradient(45deg, #db35db, #efe9e9);
+#add-task-btn {
+  background: linear-gradient(45deg, #6fa2b8, #d42fa8);
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -32,16 +33,37 @@ button {
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);}
+#add-task-btn:hover {
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3);
+}
 
 input {
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  color: #050404;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  outline: none;
+}
+
+button {
+  background-color: rgb(183, 57, 57);
+  color: #fff;
+  border: none;
+  margin: 10px;
+  padding: 5px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+span {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
